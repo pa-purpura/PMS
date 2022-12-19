@@ -2,12 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Car;
 use App\Models\Driver;
 use Illuminate\Http\Request;
 
-
-class CarController extends Controller
+class DriverController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,10 +14,7 @@ class CarController extends Controller
      */
     public function index()
     {
-        $cars = Car::all();
-        $x = Driver::with('car')->get();
-        // dd($x);
-        return view('cars.index');
+        //
     }
 
     /**
@@ -29,7 +24,7 @@ class CarController extends Controller
      */
     public function create()
     {
-        return view('cars.edit');
+        //
     }
 
     /**
@@ -40,24 +35,16 @@ class CarController extends Controller
      */
     public function store(Request $request)
     {
-        // dd($request);
-        $request->validate([
-            'brand' => 'min:3',
-        ]);
-        $car = new Car;
-        $car->fill($request->all());
-        $car->save();
-
-        return redirect()->route('cars.index');
+        //
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Car  $car
+     * @param  \App\Models\Driver  $driver
      * @return \Illuminate\Http\Response
      */
-    public function show(Car $car)
+    public function show(Driver $driver)
     {
         //
     }
@@ -65,42 +52,33 @@ class CarController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Car  $car
+     * @param  \App\Models\Driver  $driver
      * @return \Illuminate\Http\Response
      */
-    public function edit(Car $car)
+    public function edit(Driver $driver)
     {
-
-        $drivers = Driver::all();
-        return view('cars.edit', compact('car', 'drivers'));
+        //
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Car  $car
+     * @param  \App\Models\Driver  $driver
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Car $car)
+    public function update(Request $request, Driver $driver)
     {
-        // dd($request);
-        $request->validate([
-            'brand' => 'min:3',
-        ]);
-        $car = Car::findOrFail(1);
-        $car->fill($request->all());
-        $car->save();
-        return redirect()->route('cars.index')->with('success', 'Action completed');
+        //
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Car  $car
+     * @param  \App\Models\Driver  $driver
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Car $car)
+    public function destroy(Driver $driver)
     {
         //
     }

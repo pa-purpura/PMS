@@ -4,9 +4,14 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Driver;
 
 class Car extends Model
 {
     use HasFactory;
     protected $fillable = ['brand', 'model', 'year'];
+
+    public function drivers(){
+        return $this->hasMany(Driver::class);
+    }
 }
