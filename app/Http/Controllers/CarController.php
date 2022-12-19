@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Car;
+use Illuminate\Support\Facades\Schema;
+
 use Illuminate\Http\Request;
 
 class CarController extends Controller
@@ -14,8 +16,10 @@ class CarController extends Controller
      */
     public function index()
     {
-        $cars= Car::all();
-        return view('cars.index');
+        $cars = Car::all()->toArray();
+        $headData = Schema::getColumnListing((new Car)->getTable());
+        $routeItem = 'cars';
+        return view('cars.index', compact('cars', 'headData', 'routeItem'));
     }
 
     /**

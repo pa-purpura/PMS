@@ -9,7 +9,7 @@
     </thead>
     <tbody>
         @foreach ($array as $key => $item)
-        <x-row :item="$item" :routeItems="$routeItems"></x-row>
+        <x-table.row :item="$item" :routeItems="$routeItems"></x-row>
         @endforeach
     </tbody>
 </table>
